@@ -1,0 +1,6 @@
+[submodule "mbedtls-2.9.0"]
+	path = mbedtls-2.9.0
+	url = https://github.com/ARMmbed/mbedtls
+[submodule "curl-7.59.0"]
+	path = curl-7.59.0
+	url = https://github.com/curl/curl
