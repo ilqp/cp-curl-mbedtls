@@ -1,6 +1,6 @@
 .PHONY: all mbedtls
 
-export PLATFORM=osx
+export PLATFORM=linux
 export DEPS_DIR=$(CURDIR)/install
 export CURL_VER=curl-7.59.0
 export MBED_VER=mbedtls-2.9.0
@@ -24,7 +24,8 @@ mbedtls-osx:
 		-H./$(MBED_VER)/ -Bmbedtls_build 			    \
 		-DCMAKE_INSTALL_PREFIX=$(DEPS_DIR)/$(MBED_VER)/$(PLATFORM)  \
 		-DENABLE_TESTING=OFF 					    \
-		-DENABLE_PROGRAMS=OFF
+		-DENABLE_PROGRAMS=OFF					    \
+		-DCMAKE_POSITION_INDEPENDENT_CODE=ON
 	make -C mbedtls_build install
 	rm -rf mbedtls_build
 
@@ -62,6 +63,7 @@ mbedtls-android:
 		-DANDROID_ABI=armeabi-v7a						\
 		-DCMAKE_INSTALL_PREFIX=$(DEPS_DIR)/$(MBED_VER)/$(PLATFORM)		\
 		-DENABLE_TESTING=OFF 							\
-		-DENABLE_PROGRAMS=OFF
+		-DENABLE_PROGRAMS=OFF							\
+		-DCMAKE_POSITION_INDEPENDENT_CODE=ON
 	make -C mbedtls_build install
 	rm -rf mbedtls_build
